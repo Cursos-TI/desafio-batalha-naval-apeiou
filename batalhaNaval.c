@@ -57,16 +57,21 @@ int main() {
         for (int i = 0; i < 3; i++){
             tabuleiro[navioQuatroY + i][navioQuatroX - i] = 3;
         }
+
+    //extra - define posicao do navio cinco, em diagonal / [0,7][1,8][2,9]
+        int navioCincoY = 0, navioCincoX = 7;
+        for (int i = 0; i < 3; i++){
+            tabuleiro[navioCincoY + i][navioCincoX + i] = 3;
+        }
         
+    //extra - define posicao do navio seis, em diagonal / [7,5][8,4][9,3]
+        int navioSeisY = 7, navioSeisX = 5;
+        for (int i = 0; i < 3; i++){
+            tabuleiro[navioSeisY + i][navioSeisX - i] = 3;
+        }
+
     //exibe estado atualizado do tabuleiro
         mostraTabuleiro(tabuleiro); //imprime o tabuleiro
 
     return 0;
 }
-
-// tabuleiro[y][x] tabuleiro [i][j]
-// tabuleiro 10 por 10
-// navio 1 3E, 3F, 3G
-// navio 2 6H, 7H, 8H
-// navio 3 2B, 3C, 4D
-// navio 4 6E, 7D, 8C
