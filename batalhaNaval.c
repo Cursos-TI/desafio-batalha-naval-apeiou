@@ -9,7 +9,7 @@ void mostraTabuleiro(char tabuleiro[10][10]) { //automatiza a impressão do tabu
     }
     printf("\n");
     for (int i = 0; i < 10; i++){ //imprime matriz 10 x 10
-        printf("%2d. ", i + 1); //imprime coluna referencia do eixo y
+        printf("%2d: ", i + 1); //imprime coluna referencia do eixo y
         for (int j = 0; j < 10; j++){
             printf("%c ", tabuleiro[i][j]);
         }
@@ -18,7 +18,10 @@ void mostraTabuleiro(char tabuleiro[10][10]) { //automatiza a impressão do tabu
 }
 
 int main() {
-    char tabuleiro[10][10]; //define tamanho da matriz
+    printf("\n"); //quebra de página
+
+    //monta tabuleiro
+        char tabuleiro[10][10]; //define tamanho da matriz
         for (int i = 0; i < 10; i++){ //define todos os índices como '0'
             for (int j = 0; j < 10; j++){
                 tabuleiro[i][j] = '0';
@@ -26,19 +29,19 @@ int main() {
         }
     
     //define posicao do navio um, sempre horizontal
-    int navioUmY = 3, navioUmX = 4;
-    for (int i = 0; i < 3; i++){
-        tabuleiro[navioUmY][navioUmX + i] = 'X';
-    }
+        int navioUmY = 3, navioUmX = 4;
+        for (int i = 0; i < 3; i++){
+            tabuleiro[navioUmY][navioUmX + i] = 'X';
+        }
     
     //define posicao do navio um, sempre horizontal
-    int navioDoisY = 5, navioDoisX = 7;
-    for (int i = 0; i < 3; i++){
-        tabuleiro[navioDoisY + i][navioDoisX] = 'X';
-    }
+        int navioDoisY = 5, navioDoisX = 7;
+        for (int i = 0; i < 3; i++){
+            tabuleiro[navioDoisY + i][navioDoisX] = 'X';
+        }
 
-    printf("\n"); //quebra de página
-    mostraTabuleiro(tabuleiro); //imprime o tabuleiro
+    //exibe estado atualizado do tabuleiro
+        mostraTabuleiro(tabuleiro); //imprime o tabuleiro
 
     return 0;
 }
