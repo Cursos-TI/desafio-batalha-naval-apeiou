@@ -12,7 +12,7 @@ void montaTabuleiro(int tabuleiro[QUADRADO][QUADRADO]) { //monta a matriz base
     }
 }
 
-void mostraTabuleiro(int tabuleiro[QUADRADO][QUADRADO]) { //automatiza a impressão do tabuleiro
+void mostraTabuleiro(int tabuleiro[QUADRADO][QUADRADO]) { //imprime o tabuleiro
     printf("   "); //espaçamento da primeira linha
     for (int i = 0; i < QUADRADO; i++){ //imprime linha referencia do eixo X
         printf(" %c", 'A' + i);
@@ -27,9 +27,18 @@ void mostraTabuleiro(int tabuleiro[QUADRADO][QUADRADO]) { //automatiza a impress
     }
 }
 
-void navioDiagonalSecundaria(int tabuleiro[QUADRADO][QUADRADO], int inicioY, int inicioX, int tamanho) {
-    for (int controle = 0; controle < tamanho; controle++){
-        int i = inicioY + controle, j = inicioX - controle;
+void navioDiagonalPrincipal(int tabuleiro[QUADRADO][QUADRADO], int posY, int posX, int tamanho){ //define posição do navio na diagonal principal, de acordo com a posição do primeiro índice
+    for (int posNavio = 0; posNavio < tamanho; posNavio++){
+        int i = posY + posNavio, j = posX + posNavio;
+        if (i < QUADRADO && j < QUADRADO){
+            tabuleiro[i][j] = 3;
+        }
+    } 
+}
+
+void navioDiagonalSecundaria(int tabuleiro[QUADRADO][QUADRADO], int posY, int posX, int tamanho) { //define posição do navio na diagonal secundária, de acordo com a posição do primeiro índice
+    for (int posNavio = 0; posNavio < tamanho; posNavio++){
+        int i = posY + posNavio, j = posX - posNavio;
         if (i < QUADRADO && j < QUADRADO){
             tabuleiro[i][j] = 3;
         }  
@@ -44,34 +53,28 @@ int main() {
         int tabuleiro[QUADRADO][QUADRADO]; //define tamanho da matriz
         montaTabuleiro(tabuleiro);
     
-    //define posicao do navio um, sempre horizontal / [3,4][3,5][3,6]
+    //define posicao do navio 1, sempre horizontal / [3,4][3,5][3,6]
         int navioUmY = 3, navioUmX = 4;
         for (int i = 0; i < 3; i++){
             tabuleiro[navioUmY][navioUmX + i] = 3;
         }
     
-    //define posicao do navio dois, sempre horizontal / [5,7][6,7][7,7]
+    //define posicao do navio 2, sempre horizontal / [5,7][6,7][7,7]
         int navioDoisY = 5, navioDoisX = 7;
         for (int i = 0; i < 3; i++){
             tabuleiro[navioDoisY + i][navioDoisX] = 3;
         }
 
-    //define posicao do navio três, sempre diagonal principal / [1,1][2,2][3,3]
-        int navioTres = 1;
-        for (int i = 0; i < 3; i++){
-            tabuleiro[navioTres + i][navioTres + i] = 3;
-        }
+    //define posicao do navio 3, sempre diagonal principal / [1,1][2,2][3,3]
+        navioDiagonalPrincipal(tabuleiro, 1, 1, 3);
         
-    //define posicao do navio quatro, sempre diagonal secundaria / [5,4][6,3][7,2]
+    //define posicao do navio 4, sempre diagonal secundaria / [5,4][6,3][7,2]
         navioDiagonalSecundaria(tabuleiro, 5, 4, 3);
         
-    //extra - define posicao do navio cinco, em diagonal / [0,7][1,8][2,9]
-        int navioCincoY = 0, navioCincoX = 7;
-        for (int i = 0; i < 3; i++){
-            tabuleiro[navioCincoY + i][navioCincoX + i] = 3;
-        }
+    //extra - define posicao do navio 5, em diagonal / [0,7][1,8][2,9
+        navioDiagonalPrincipal(tabuleiro, 0, 7, 3);
         
-    //extra - define posicao do navio seis, em diagonal / [7,5][8,4][9,3]
+    //extra - define posicao do navio 6, em diagonal / [7,5][8,4][9,3]
         navioDiagonalSecundaria(tabuleiro, 7, 5, 3);
     
     //exibe estado atualizado do tabuleiro 
