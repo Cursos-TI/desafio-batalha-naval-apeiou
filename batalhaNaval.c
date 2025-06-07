@@ -3,6 +3,7 @@
 #include <time.h>
 
 void mostraTabuleiro(int tabuleiro[10][10]) { //automatiza a impressão do tabuleiro
+    printf(" "); //espaçamento da primeira linha
     for (int i = 0; i < 10; i++){ //imprime linha referencia do eixo X
         printf(" %c", 'A' + i);
     }
