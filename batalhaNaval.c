@@ -2,17 +2,25 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define QUADRADO 10
+#define QUADRADO 10 //define tamanho da matriz quadrada
+
+void montaTabuleiro(char tabuleiro[QUADRADO][QUADRADO]) {
+    for (int i = 0; i < QUADRADO; i++){ //define todos os índices como '0'
+        for (int j = 0; j < QUADRADO; j++){
+            tabuleiro[i][j] = '0';
+        }
+    }
+}
 
 void mostraTabuleiro(char tabuleiro[QUADRADO][QUADRADO]) { //automatiza a impressão do tabuleiro
     printf("   "); //espaçamento da primeira linha
-    for (int i = 0; i < 10; i++){ //imprime linha referencia do eixo X
+    for (int i = 0; i < QUADRADO; i++){ //imprime linha referencia do eixo X
         printf(" %c", 'A' + i);
     }
     printf("\n");
-    for (int i = 0; i < 10; i++){ //imprime matriz 10 x 10
+    for (int i = 0; i < QUADRADO; i++){ //imprime matriz 10 x 10
         printf("%2d: ", i + 1); //imprime coluna referencia do eixo y
-        for (int j = 0; j < 10; j++){
+        for (int j = 0; j < QUADRADO; j++){
             printf("%c ", tabuleiro[i][j]);
         }
         printf("\n");
@@ -24,11 +32,7 @@ int main() {
 
     //monta tabuleiro
         char tabuleiro[QUADRADO][QUADRADO]; //define tamanho da matriz
-        for (int i = 0; i < 10; i++){ //define todos os índices como '0'
-            for (int j = 0; j < 10; j++){
-                tabuleiro[i][j] = '0';
-            }
-        }
+        montaTabuleiro(tabuleiro);
     
     //define posicao do navio um, sempre horizontal
         int navioUmY = 3, navioUmX = 4;
