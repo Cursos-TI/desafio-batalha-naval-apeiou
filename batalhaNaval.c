@@ -34,23 +34,30 @@ int main() {
         int tabuleiro[QUADRADO][QUADRADO]; //define tamanho da matriz
         montaTabuleiro(tabuleiro);
     
-    //define posicao do navio um, sempre horizontal
+    //define posicao do navio um, sempre horizontal / [3,4][3,5][3,6]
         int navioUmY = 3, navioUmX = 4;
         for (int i = 0; i < 3; i++){
             tabuleiro[navioUmY][navioUmX + i] = 3;
         }
     
-    //define posicao do navio dois, sempre horizontal
+    //define posicao do navio dois, sempre horizontal / [5,7][6,7][7,7]
         int navioDoisY = 5, navioDoisX = 7;
         for (int i = 0; i < 3; i++){
             tabuleiro[navioDoisY + i][navioDoisX] = 3;
         }
 
-    //define posicao do navio três, sempre diagonal principal
-
-    //define posicao do navio quatro, sempre diagonal secundaria
-
-
+    //define posicao do navio três, sempre diagonal principal / [1,1][2,2][3,3]
+        int navioTres = 1;
+        for (int i = 0; i < 3; i++){
+            tabuleiro[navioTres + i][navioTres + i] = 3;
+        }
+        
+    //define posicao do navio quatro, sempre diagonal secundaria / [5,4][6,3][7,2]
+        int navioQuatroY = 5, navioQuatroX = 4;
+        for (int i = 0; i < 3; i++){
+            tabuleiro[navioQuatroY + i][navioQuatroX - i] = 3;
+        }
+        
     //exibe estado atualizado do tabuleiro
         mostraTabuleiro(tabuleiro); //imprime o tabuleiro
 
@@ -61,3 +68,5 @@ int main() {
 // tabuleiro 10 por 10
 // navio 1 3E, 3F, 3G
 // navio 2 6H, 7H, 8H
+// navio 3 2B, 3C, 4D
+// navio 4 6E, 7D, 8C
