@@ -17,10 +17,10 @@ void mostraTabuleiro(int tabuleiro[10][10]) { //automatiza a impressão do tabul
     }
 }
 
-
 int main() {
-    
-    int tabuleiro[10][10] = {0}; //define estado inicial do tabuleiro, todas as casas vazias
+    int tabuleiro[10][10] = {0}; //cria matriz do tabuleiro
+    int navioUm[3] = {tabuleiro[3][4] = 1, tabuleiro[3][5] = 1, tabuleiro[3][6] = 1};
+    int navioDois[3] = {tabuleiro[5][7] = 1, tabuleiro[6][7] = 1, tabuleiro[7][7] = 1};
 
     printf("\n"); //quebra de página
     mostraTabuleiro(tabuleiro); //imprime o tabuleiro
@@ -29,3 +29,6 @@ int main() {
 }
 
 // tabuleiro[y][x] tabuleiro [i][j]
+// tabuleiro 10 por 10
+// navio 1 3E, 3F, 3G
+// navio 2 6H, 7H, 8H
