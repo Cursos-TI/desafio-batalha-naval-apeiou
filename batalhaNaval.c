@@ -25,8 +25,17 @@ int main() {
             }
         }
     
-    char navioUm[3] = {tabuleiro[3][4] = 'X', tabuleiro[3][5] = 'X', tabuleiro[3][6] = 'X'};
-    char navioDois[3] = {tabuleiro[5][7] = 'X', tabuleiro[6][7] = 'X', tabuleiro[7][7] = 'X'};
+    //define posicao do navio um, sempre horizontal
+    int navioUmY = 3, navioUmX = 4;
+    for (int i = 0; i < 3; i++){
+        tabuleiro[navioUmY][navioUmX + i] = 'X';
+    }
+    
+    //define posicao do navio um, sempre horizontal
+    int navioDoisY = 5, navioDoisX = 7;
+    for (int i = 0; i < 3; i++){
+        tabuleiro[navioDoisY + i][navioDoisX] = 'X';
+    }
 
     printf("\n"); //quebra de página
     mostraTabuleiro(tabuleiro); //imprime o tabuleiro
