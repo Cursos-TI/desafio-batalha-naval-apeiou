@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-void mostraTabuleiro(char tabuleiro[10][10]) { //automatiza a impressão do tabuleiro
+#define QUADRADO 10
+
+void mostraTabuleiro(char tabuleiro[QUADRADO][QUADRADO]) { //automatiza a impressão do tabuleiro
     printf("   "); //espaçamento da primeira linha
     for (int i = 0; i < 10; i++){ //imprime linha referencia do eixo X
         printf(" %c", 'A' + i);
@@ -21,7 +23,7 @@ int main() {
     printf("\n"); //quebra de página
 
     //monta tabuleiro
-        char tabuleiro[10][10]; //define tamanho da matriz
+        char tabuleiro[QUADRADO][QUADRADO]; //define tamanho da matriz
         for (int i = 0; i < 10; i++){ //define todos os índices como '0'
             for (int j = 0; j < 10; j++){
                 tabuleiro[i][j] = '0';
