@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-void mostraTabuleiro(int tabuleiro[10][10]) { //automatiza a impressão do tabuleiro
+void mostraTabuleiro(char tabuleiro[10][10]) { //automatiza a impressão do tabuleiro
     printf("   "); //espaçamento da primeira linha
     for (int i = 0; i < 10; i++){ //imprime linha referencia do eixo X
         printf(" %c", 'A' + i);
@@ -11,16 +11,22 @@ void mostraTabuleiro(int tabuleiro[10][10]) { //automatiza a impressão do tabul
     for (int i = 0; i < 10; i++){ //imprime matriz 10 x 10
         printf("%2d. ", i + 1); //imprime coluna referencia do eixo y
         for (int j = 0; j < 10; j++){
-            printf("%d ", tabuleiro[i][j]);
+            printf("%c ", tabuleiro[i][j]);
         }
         printf("\n");
     }
 }
 
 int main() {
-    int tabuleiro[10][10] = {0}; //cria matriz do tabuleiro
-    int navioUm[3] = {tabuleiro[3][4] = 1, tabuleiro[3][5] = 1, tabuleiro[3][6] = 1};
-    int navioDois[3] = {tabuleiro[5][7] = 1, tabuleiro[6][7] = 1, tabuleiro[7][7] = 1};
+    char tabuleiro[10][10]; //define tamanho da matriz
+        for (int i = 0; i < 10; i++){ //define todos os índices como '0'
+            for (int j = 0; j < 10; j++){
+                tabuleiro[i][j] = '0';
+            }
+        }
+    
+    char navioUm[3] = {tabuleiro[3][4] = 'X', tabuleiro[3][5] = 'X', tabuleiro[3][6] = 'X'};
+    char navioDois[3] = {tabuleiro[5][7] = 'X', tabuleiro[6][7] = 'X', tabuleiro[7][7] = 'X'};
 
     printf("\n"); //quebra de página
     mostraTabuleiro(tabuleiro); //imprime o tabuleiro
