@@ -31,17 +31,18 @@ void habilidadeCone(int tabuleiro[TAMANHO][TAMANHO], int posY, int posX){
     if (posY - 1 >= 0 && posX >= 0 && posX < TAMANHO){
         tabuleiro[posY - 1][posX] = 5;
     }
-    //tabuleiro[posY - 1][posX] = 5;
 
-    //tabuleiro[posY][posX - 1] = 5;
-    //tabuleiro[posY][posX] = 5;
-    //tabuleiro[posY][posX + 1] = 5;
-
-    //tabuleiro[posY + 1][posX - 2] = 5;
-    //tabuleiro[posY + 1][posX - 1] = 5;
-    //tabuleiro[posY + 1][posX] = 5;
-    //tabuleiro[posY + 1][posX + 1] = 5;
-    //tabuleiro[posY + 1][posX + 2] = 5;
+    for (int j = -1; j <= 1; j++){
+        if (posY >= 0 && posY < TAMANHO && posX + j >= 0 && posX + j < TAMANHO){
+            tabuleiro[posY][posX + j] = 5;
+        }
+    }
+    
+    for (int j = -2; j <= 2; j++){
+        if (posY >= 0 && posY < TAMANHO && posX + j >= 0 && posX + j < TAMANHO){
+            tabuleiro[posY + 1][posX + j] = 5;
+        }
+    }
 }
 
 
@@ -51,7 +52,7 @@ int main() {
     //exibição dos navios
         int tabuleiro[TAMANHO][TAMANHO]; //define tamanho da matriz
         montaTabuleiro(tabuleiro);
-        habilidadeCone(tabuleiro, 2, 3);
+        habilidadeCone(tabuleiro, 6, 5);
         mostraTabuleiro(tabuleiro); //exibe estado atualizado do tabuleiro 
 
     return 0;

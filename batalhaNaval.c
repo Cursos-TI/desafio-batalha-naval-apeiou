@@ -63,6 +63,24 @@ void navioDiagonalSecundaria(int tabuleiro[TAMANHO][TAMANHO], int posY, int posX
     }
 }
 
+void habilidadeCone(int tabuleiro[TAMANHO][TAMANHO], int posY, int posX){
+    if (posY - 1 >= 0 && posX >= 0 && posX < TAMANHO){
+        tabuleiro[posY - 1][posX] = 5;
+    }
+
+    for (int j = -1; j <= 1; j++){
+        if (posY >= 0 && posY < TAMANHO && posX + j >= 0 && posX + j < TAMANHO){
+            tabuleiro[posY][posX + j] = 5;
+        }
+    }
+    
+    for (int j = -2; j <= 2; j++){
+        if (posY >= 0 && posY < TAMANHO && posX + j >= 0 && posX + j < TAMANHO){
+            tabuleiro[posY + 1][posX + j] = 5;
+        }
+    }
+}
+
 
 int main() {
     printf("\n"); //quebra de página
@@ -76,6 +94,7 @@ int main() {
         navioDiagonalSecundaria(tabuleiro, 5, 4, 3); //define posicao do navio 4, sempre diagonal secundaria / [5,4][6,3][7,2]
         navioDiagonalPrincipal(tabuleiro, 0, 7, 3); //extra - define posicao do navio 5, em diagonal / [0,7][1,8][2,9]
         navioDiagonalSecundaria(tabuleiro, 7, 5, 3); //extra - define posicao do navio 6, em diagonal / [7,5][8,4][9,3]
+        habilidadeCone(tabuleiro, 2, 3); //define posicao da habilidade em cone com o centro no indice [2,3]
         mostraTabuleiro(tabuleiro); //exibe estado atualizado do tabuleiro 
 
     return 0;
