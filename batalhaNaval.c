@@ -67,30 +67,16 @@ void navioDiagonalSecundaria(int tabuleiro[QUADRADO][QUADRADO], int posY, int po
 int main() {
     printf("\n"); //quebra de página
 
-//monta tabuleiro
-    int tabuleiro[QUADRADO][QUADRADO]; //define tamanho da matriz
-    montaTabuleiro(tabuleiro);
-
-//define posicao do navio 1, sempre horizontal / [3,4][3,5][3,6]
-    navioHorizontal(tabuleiro, 3, 4, 3);
-
-//define posicao do navio 2, sempre horizontal / [5,7][6,7][7,7]
-    navioVertical(tabuleiro, 5, 7, 3);
-
-//define posicao do navio 3, sempre diagonal principal / [1,1][2,2][3,3]
-    navioDiagonalPrincipal(tabuleiro, 1, 1, 3);
-    
-//define posicao do navio 4, sempre diagonal secundaria / [5,4][6,3][7,2]
-    navioDiagonalSecundaria(tabuleiro, 5, 4, 3);
-    
-//extra - define posicao do navio 5, em diagonal / [0,7][1,8][2,9
-    navioDiagonalPrincipal(tabuleiro, 0, 7, 3);
-    
-//extra - define posicao do navio 6, em diagonal / [7,5][8,4][9,3]
-    navioDiagonalSecundaria(tabuleiro, 7, 5, 3);
-
-//exibe estado atualizado do tabuleiro 
-    mostraTabuleiro(tabuleiro); //imprime o tabuleiro
+    //exibição dos navios
+        int tabuleiro[QUADRADO][QUADRADO]; //define tamanho da matriz
+        montaTabuleiro(tabuleiro);
+        navioHorizontal(tabuleiro, 3, 4, 3); //define posicao do navio 1, sempre horizontal / [3,4][3,5][3,6]
+        navioVertical(tabuleiro, 5, 7, 3); //define posicao do navio 2, sempre horizontal / [5,7][6,7][7,7]
+        navioDiagonalPrincipal(tabuleiro, 1, 1, 3); //define posicao do navio 3, sempre diagonal principal / [1,1][2,2][3,3]
+        navioDiagonalSecundaria(tabuleiro, 5, 4, 3); //define posicao do navio 4, sempre diagonal secundaria / [5,4][6,3][7,2]
+        navioDiagonalPrincipal(tabuleiro, 0, 7, 3); //extra - define posicao do navio 5, em diagonal / [0,7][1,8][2,9]
+        navioDiagonalSecundaria(tabuleiro, 7, 5, 3); //extra - define posicao do navio 6, em diagonal / [7,5][8,4][9,3]
+        mostraTabuleiro(tabuleiro); //exibe estado atualizado do tabuleiro 
 
     return 0;
 }
