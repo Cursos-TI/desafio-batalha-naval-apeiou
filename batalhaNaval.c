@@ -93,6 +93,18 @@ void habilidadeOctaedro(int tabuleiro[TAMANHO][TAMANHO], int posY, int posX){
     }
 }
 
+void habilidadeCruz(int tabuleiro[TAMANHO][TAMANHO], int posY, int posX){
+    for (int i = -2; i <= 2; i++){
+        if (posY + i >= 0 && posY + i < TAMANHO && posX >= 0 && posX < TAMANHO){
+            tabuleiro[posY + i][posX] = 5;
+        }
+    }
+    for (int j = -2; j <= 2; j++){
+        if (posY >= 0 && posY < TAMANHO && posX + j >= 0 && posX + j < TAMANHO){
+            tabuleiro[posY][posX + j] = 5;
+        }
+    }
+}
 
 int main() {
     printf("\n"); //quebra de página
@@ -108,6 +120,7 @@ int main() {
         navioDiagonalSecundaria(tabuleiro, 7, 5, 3); //extra - define posicao do navio 6, em diagonal / [7,5][8,4][9,3]
         habilidadeCone(tabuleiro, 2, 3); //define posicao da habilidade em cone com o centro no indice [2,3]
         habilidadeOctaedro(tabuleiro, 8, 2); //define posicao da habilidade em formato octaedro com o centro no indice [8,2]
+        habilidadeCruz(tabuleiro, 5, 7);
         mostraTabuleiro(tabuleiro); //exibe estado atualizado do tabuleiro 
 
     return 0;
