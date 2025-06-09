@@ -2,62 +2,62 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define QUADRADO 10 //define tamanho da matriz quadrada
+#define TAMANHO 10 //define tamanho da matriz quadrada
 
-void montaTabuleiro(int tabuleiro[QUADRADO][QUADRADO]) { //monta a matriz base
-    for (int i = 0; i < QUADRADO; i++){
-        for (int j = 0; j < QUADRADO; j++){
+void montaTabuleiro(int tabuleiro[TAMANHO][TAMANHO]) { //monta a matriz base
+    for (int i = 0; i < TAMANHO; i++){
+        for (int j = 0; j < TAMANHO; j++){
             tabuleiro[i][j] = 0;
         }
     }
 }
 
-void mostraTabuleiro(int tabuleiro[QUADRADO][QUADRADO]) { //imprime o tabuleiro
+void mostraTabuleiro(int tabuleiro[TAMANHO][TAMANHO]) { //imprime o tabuleiro
     printf("   "); //espaçamento da primeira linha
-    for (int i = 0; i < QUADRADO; i++){ //imprime linha referencia do eixo X
+    for (int i = 0; i < TAMANHO; i++){ //imprime linha referencia do eixo X
         printf(" %c", 'A' + i);
     }
     printf("\n");
-    for (int i = 0; i < QUADRADO; i++){ //imprime matriz 10 x 10
+    for (int i = 0; i < TAMANHO; i++){ //imprime matriz 10 x 10
         printf("%2d: ", i + 1); //imprime coluna referencia do eixo y
-        for (int j = 0; j < QUADRADO; j++){
+        for (int j = 0; j < TAMANHO; j++){
             printf("%d ", tabuleiro[i][j]);
         }
         printf("\n");
     }
 }
 
-void navioHorizontal(int tabuleiro[QUADRADO][QUADRADO], int posY, int posX, int tamanho){ //define posição do navio na horizontal, de acordo com a posição do primeiro índice
+void navioHorizontal(int tabuleiro[TAMANHO][TAMANHO], int posY, int posX, int tamanho){ //define posição do navio na horizontal, de acordo com a posição do primeiro índice
     for (int moveIndice = 0; moveIndice < tamanho; moveIndice++){
         int i = posY, j = posX + moveIndice;
-        if (i < QUADRADO && j < QUADRADO){
+        if (i < TAMANHO && j < TAMANHO){
             tabuleiro[i][j] = 3;
         }
     }
 }
 
-void navioVertical(int tabuleiro[QUADRADO][QUADRADO], int posY, int posX, int tamanho){ //define posição do navio na vertical, de acordo com a posição do primeiro índice
+void navioVertical(int tabuleiro[TAMANHO][TAMANHO], int posY, int posX, int tamanho){ //define posição do navio na vertical, de acordo com a posição do primeiro índice
     for (int moveIndice = 0; moveIndice < tamanho; moveIndice++){
         int i = posY + moveIndice, j = posX;
-        if (i < QUADRADO && j < QUADRADO){
+        if (i < TAMANHO && j < TAMANHO){
             tabuleiro[i][j] = 3;
         }
     }
 }
 
-void navioDiagonalPrincipal(int tabuleiro[QUADRADO][QUADRADO], int posY, int posX, int tamanho){ //define posição do navio na diagonal principal, de acordo com a posição do primeiro índice
+void navioDiagonalPrincipal(int tabuleiro[TAMANHO][TAMANHO], int posY, int posX, int tamanho){ //define posição do navio na diagonal principal, de acordo com a posição do primeiro índice
     for (int moveIndice = 0; moveIndice < tamanho; moveIndice++){
         int i = posY + moveIndice, j = posX + moveIndice;
-        if (i < QUADRADO && j < QUADRADO){
+        if (i < TAMANHO && j < TAMANHO){
             tabuleiro[i][j] = 3;
         }
     } 
 }
 
-void navioDiagonalSecundaria(int tabuleiro[QUADRADO][QUADRADO], int posY, int posX, int tamanho) { //define posição do navio na diagonal secundária, de acordo com a posição do primeiro índice
+void navioDiagonalSecundaria(int tabuleiro[TAMANHO][TAMANHO], int posY, int posX, int tamanho) { //define posição do navio na diagonal secundária, de acordo com a posição do primeiro índice
     for (int moveIndice = 0; moveIndice < tamanho; moveIndice++){
         int i = posY + moveIndice, j = posX - moveIndice;
-        if (i < QUADRADO && j < QUADRADO){
+        if (i < TAMANHO && j < TAMANHO){
             tabuleiro[i][j] = 3;
         }  
     }
@@ -68,7 +68,7 @@ int main() {
     printf("\n"); //quebra de página
 
     //exibição dos navios
-        int tabuleiro[QUADRADO][QUADRADO]; //define tamanho da matriz
+        int tabuleiro[TAMANHO][TAMANHO]; //define tamanho da matriz
         montaTabuleiro(tabuleiro);
         navioHorizontal(tabuleiro, 3, 4, 3); //define posicao do navio 1, sempre horizontal / [3,4][3,5][3,6]
         navioVertical(tabuleiro, 5, 7, 3); //define posicao do navio 2, sempre horizontal / [5,7][6,7][7,7]
